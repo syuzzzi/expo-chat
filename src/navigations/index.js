@@ -15,7 +15,7 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {user.uid ? (
+        {!user.uid ? (
           <Stack.Screen name="Main" component={Main} />
         ) : (
           <Stack.Screen name="Auth" component={Auth} />
