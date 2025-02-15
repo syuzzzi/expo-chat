@@ -18,6 +18,7 @@ export const theme = {
   btnBackground: Colors.main,
   btnTitle: Colors.white,
   btnTextLink: Colors.main,
+  btnSignout: Colors.red,
 
   //imgage
   imgBackground: Colors.grey,
@@ -29,6 +30,7 @@ export const theme = {
   inputLabel: Colors.grey1,
   inputPlaceholder: Colors.grey1,
   inputBorder: Colors.grey1,
+  inputDisabled: Colors.grey0,
 
   //spinner
   spinnerBackground: Colors.black,
