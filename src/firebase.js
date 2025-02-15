@@ -1,11 +1,13 @@
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
-  createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut,
   updateProfile,
 } from "firebase/auth";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { getFirestore, collection, doc, setDoc } from "firebase/firestore";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import config from "../firebase.json";
 
 // Firebase 앱 초기화
@@ -68,4 +70,25 @@ export const updateUserInfo = async (photo) => {
 export const signout = async () => {
   await signOut(auth);
   return {};
+};
+
+const db = getFirestore(app);
+
+export const createChannel = async ({ title, desc }) => {
+  const channelCollection = collection(db, "channels");
+  const newChannelRef = doc(channelCollection);
+  const id = newChannelRef.id;
+  const newChannel = {
+    id,
+    title,
+    description: desc,
+    createdAt: Date.now(),
+  };
+  await setDoc(newChannelRef, newChannel);
+  return id;
+};
+
+export const createMessage = async ({ channelId, message }) => {
+  const docRef = doc(db, `channels/${channelId}/messages`, message._id);
+  await setDoc(docRef, { ...message, createdAt: Date.now() });
 };

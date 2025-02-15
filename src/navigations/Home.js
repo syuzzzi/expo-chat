@@ -28,6 +28,15 @@ const Home = ({ navigation }) => {
           // 스택 네비게이터의 헤더 타이틀을 업데이트
           navigation.setOptions({
             headerTitle: route.name,
+            headerRight: () =>
+              route.name === "List" && (
+                <MaterialIcons
+                  name="add"
+                  size={26}
+                  style={{ margin: 10 }}
+                  onPress={() => navigation.navigate("ChannelCreation")}
+                />
+              ),
           });
         },
       })}

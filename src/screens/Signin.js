@@ -56,7 +56,6 @@ const Signin = ({ navigation }) => {
       spinner.start();
       const user = await signin({ email, password });
       setUser(user);
-      navigation.navigate("Main", { screen: "Profile", params: { user } });
     } catch (e) {
       Alert.alert("Signin Error", e.message);
     } finally {
