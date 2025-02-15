@@ -39,4 +39,10 @@ export const theme = {
   //tab
   tabBtnActive: Colors.main,
   tabBtnInactive: Colors.grey1,
+
+  //list - item
+  itemBorder: Colors.grey0,
+  itemTime: Colors.grey1,
+  itemDesc: Colors.grey1,
+  itemIcon: Colors.text,
 };
