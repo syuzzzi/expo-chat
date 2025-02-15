@@ -15,7 +15,6 @@ const Main = () => {
         headerTitleAlign: "center",
         headerTintColor: theme.text,
         headerBackTitle: "",
-        headerBackTitleVisible: false,
         cardStyle: { backgroundColor: theme.background },
       }}
     >
